@@ -1,12 +1,17 @@
+import formatData from "./helper.js";
 const loader=document.getElementById("loader")
 const container=document.getElementById("container")
 const URL="https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
 let formattedData=null;
+
+
+
 const fetchData=async()=>{
     const response=await fetch(URL)
     const json=await  response.json()
     console.log(json)
-    formattedData=json
+    formattedData=formatData(json.results)
+    console.log(formattedData)
     start()
 }
 
