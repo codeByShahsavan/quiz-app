@@ -9,7 +9,7 @@ const scoreText=document.getElementById("score")
 const nextButton=document.getElementById("next-button")
 const finishButton=document.getElementById("finish-button")
 const questionNumber=document.getElementById("question-number")
-
+const error=document.getElementById("error")
 
 
 const CORRECT_BONUS=10
@@ -19,13 +19,19 @@ let questionIndex=0
 let correctAnswer=null
 let score=0
 let isAccepted=true
+
 const fetchData=async()=>{
-    const response=await fetch(URL)
+   try{
+      const response=await fetch(URL)
     const json=await  response.json()
     console.log(json)
     formattedData=formatData(json.results)
     console.log(formattedData)
     start()
+   }catch(err){
+         loader.style.display="none"
+        error.style.display="block"
+   }
 }
 
 const start=()=>{

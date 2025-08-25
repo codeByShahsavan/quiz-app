@@ -101,3 +101,9 @@ h3{
 .incorrect:hover{
     background-color: #fe6681;
 }
+#error{
+    display: none;
+    color: #6757d9;
+    font-size: 1.2rem;
+
+}
